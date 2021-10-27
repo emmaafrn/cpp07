@@ -10,18 +10,20 @@ void	swap(T& a,  T& b){
 	c = a;
 	a = b;
 	b = c;
-};
+}
+
 template <typename T>
 T&		min(T& x, T& y){
 	if (x < y)
 		return x;
 	return (y);
-};
+}
+
 template <typename T>
 T&		max(T& x, T& y){
 	if (x > y)
 		return (x);
 	return (y);
-};
+}
 
 #endif
