@@ -10,9 +10,9 @@ private:
 	unsigned int	_size;
 public:
 	Array(): _Data(new T[0]), _size(0) {}
-	Array(unsigned int n) : _Data(new T[n]){}
-	Array(const Array& copy) : _Data(new T[copy._size]), _size(copy->_size){
-		for (int i = 0; i < _size; i++)
+	Array(unsigned int n) : _Data(new T[n]), _size(n) {}
+	Array(const Array& copy) : _Data(new T[copy._size]), _size(copy._size){
+		for (unsigned int i = 0; i < _size; i++)
 			_Data[i] = copy._Data[i];
 	}
 	~Array() {
@@ -25,16 +25,16 @@ public:
 		delete [] _Data;
 		_size = rhs._size;
 		_Data = new T[rhs._size];
-		for (int i = 0; i < _size; i++)
+		for (unsigned int i = 0; i < _size; i++)
 			_Data[i] = rhs._Data[i];
-		
+		return (*this);
 	}
-	Array	&operator[](unsigned int i){
+	T	&operator[](unsigned int i){
 		if (i >= _size){
 			throw std::exception();
 		}
+		return (_Data[i]);
 	}
 };
-
 
 #endif
